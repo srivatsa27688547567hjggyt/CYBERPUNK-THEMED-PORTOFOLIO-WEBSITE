@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "name": "HANDWRITTEN JAVA NOTES HOME DELIVER WITH BINDING AND COVER",
+        "price": "₹999",
+        "image": "images/keyboard.jpg",
+        "description": "A NEAT AND BEGGINER FRIENDLY NOTES FOR JAVA LEARNERS."
+    },
+    {
+        "id": 2,
+        "name": "Gaming Mouse",
+        "price": "₹1,999",
+        "image": "images/mouse.jpg",
+        "description": "Ultra-responsive mouse with customizable RGB."
+
+    },
+    {
+        "id": 3,
+        "name": "HANDWRITTEN c notes",
+        "price": "₹999",
+        "image": "images/keyboard.jpg",
+        "description": "A NEAT AND BEGGINER FRIENDLY NOTES FOR JAVA LEARNERS."
+    }
+]

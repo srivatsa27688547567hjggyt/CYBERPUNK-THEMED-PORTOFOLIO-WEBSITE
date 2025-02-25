@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Cyberpunk Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="neon-navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section class="hero">
+        <div class="avatar-container">
+            <img src="assets\MY-AVATAR.jpeg" alt="My Avatar" class="avatar">
+        </div>
+        <h1 class="neon-text">About Me</h1>
+        <p class="fade-in">Hi, I'm a passionate developer, tech enthusiast, and entrepreneur on a mission to build cool projects, including **Sris Women Fashion, university management software, and an edu-commerce platform**.</p>
+        
+        <h2 class="neon-text">🔹 My Skills</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <span>Coding (C, SQL, JavaScript, AI Tools) - 100%</span>
+                <div class="progress-bar"><div class="progress-fill" data-progress="100"></div></div>
+            </div>
+            <div class="skill">
+                <span>Web Development (HTML, CSS, JavaScript) - 85%</span>
+                <div class="progress-bar"><div class="progress-fill" data-progress="85"></div></div>
+            </div>
+            <div class="skill">
+                <span>Video Editing & Graphics Design - 75%</span>
+                <div class="progress-bar"><div class="progress-fill" data-progress="75"></div></div>
+            </div>
+            <div class="skill">
+                <span>Electronics & DIY Projects - 70%</span>
+                <div class="progress-bar"><div class="progress-fill" data-progress="70"></div></div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="projects.html" class="btn">View My Projects</a>
+            <a href="shop.html" class="btn">Visit My Shop</a>
+            <a href="contact.html" class="btn">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- GSAP Animations -->
+    <script>
+        gsap.from(".avatar", { opacity: 0, y: -50, duration: 1 });
+        gsap.from(".neon-text", { opacity: 0, scale: 0.8, duration: 1, delay: 0.5 });
+        gsap.from(".fade-in", { opacity: 0, y: 20, duration: 1, delay: 1 });
+        gsap.from(".skill", { opacity: 0, x: -50, duration: 1, stagger: 0.2, delay: 1.5 });
+
+        // Progress bar animation
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".progress-fill").forEach((bar) => {
+                let width = bar.getAttribute("data-progress");
+                gsap.to(bar, { width: width + "%", duration: 1.5, delay: 2 });
+            });
+        });
+    </script>
+
+</body>
+</html>

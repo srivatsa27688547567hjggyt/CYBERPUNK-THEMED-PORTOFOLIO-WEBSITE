@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            background: #0d0d0d;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .projects-title {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #0ff;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 15px #0ff;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            opacity: 0; /* Initial opacity for GSAP animation */
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #0ff;
+        }
+
+        .project-card h2 {
+            font-size: 1.5rem;
+            color: #0ff;
+        }
+
+        .github-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #000;
+            background: #0ff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .github-btn:hover {
+            background: #ff0;
+            box-shadow: 0 0 10px #ff0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="navbar">Loading navbar...</div>
+
+    <h1 class="projects-title">My Projects</h1>
+
+    <div class="project-grid" id="projects-container">
+        <!-- Projects will be inserted here dynamically -->
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">Loading footer...</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("JavaScript is working!");
+
+            // Load Navbar
+            fetch("navbar.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("navbar").innerHTML = data)
+                .catch(error => console.error("Error loading navbar:", error));
+
+            // Load Footer
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("footer").innerHTML = data)
+                .catch(error => console.error("Error loading footer:", error));
+
+            // Project Data
+            const projects = [
+                { name: "Python Passcode Generator", github: "https://github.com/yourusername/python-passcode" },
+                { name: "Cricket Game in C", github: "https://github.com/srivatsa27688547567hjggyt/Text-Cricket-Game" },
+                { name: "Portfolio Website", github: "https://github.com/yourusername/portfolio-website" }
+            ];
+
+            const container = document.getElementById("projects-container");
+
+            if (!container) {
+                console.error("Error: Project container not found!");
+                return;
+            }
+
+            projects.forEach((project) => {
+                let projectCard = document.createElement("div");
+                projectCard.classList.add("project-card");
+
+                projectCard.innerHTML = `
+                    <h2>${project.name}</h2>
+                    <a href="${project.github}" target="_blank" class="github-btn">GitHub</a>
+                `;
+
+                container.appendChild(projectCard);
+            });
+
+            // GSAP Animations
+            gsap.to(".project-card", {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
+
+            console.log("Projects loaded successfully!");
+        });
+    </script>
+
+</body>
+</html>
